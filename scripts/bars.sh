@@ -49,8 +49,14 @@ clock() {
 }
 
 while true; do
-    [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] && updates=$(pkg_updates)
+    if [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ]; then
+        updates=$(pkg_updates)
+    fi
+    if [ $interval = 0 ] || [ $(($interval % 10)) = 0 ]; then
+        disk_space=$(disk)
+        memory=$(mem)
+    fi
     interval=$((interval + 1))
-    sleep 1
-    xsetroot -name "  ${updates}${sep}$(cpu)${sep}$(mem)${sep}$(disk)${sep}$(volume)${sep}$(wlan)${sep}$(clock)  "
+    sleep 0.1
+    xsetroot -name "  ${updates}${sep}$(cpu)${sep}${memory}${sep}${disk_space}${sep}$(volume)${sep}$(wlan)${sep}$(clock)  "
 done
