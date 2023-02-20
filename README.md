@@ -1,0 +1,18 @@
+# dotfiles
+
+```json
+{
+  "dependencies": {
+    "coc-git": ">=2.4.8",
+    "coc-json": ">=1.4.1",
+    "coc-python": ">=1.2.13",
+    "coc-sh": ">=0.6.1",
+    "coc-texlab": ">=3.2.0",
+    "coc-tsserver": ">=1.9.13",
+    "coc-java": ">=1.5.5"
+  },
+  "disabled": [],
+  "locked": [],
+  "lastUpdate": 1663529699994
+}
+```
