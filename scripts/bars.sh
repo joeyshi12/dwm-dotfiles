@@ -1,11 +1,10 @@
 #!/bin/sh
 interval=0
-sep="    |    "
+sep=" | "
 
 cpu() {
     cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
-    printf "CPU  "
-    printf "$cpu_val"
+    printf "CPU $cpu_val"
 }
 
 pkg_updates() {
@@ -14,24 +13,23 @@ pkg_updates() {
     if [ -z "$updates" ]; then
         printf "  Fully Updated"
     else
-        printf "  $updates"" updates"
+        printf " $updates"" updates"
     fi
 }
 
 mem() {
-    printf "  "
-    printf "$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
+    printf " $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
 }
 
 wlan() {
     case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-        up) printf "  %s" "Connected" ;;
-        down) printf "  %s" "Disconnected" ;;
+        up) printf "  %s" "Connected" ;;
+        down) printf "󰖪  %s" "Disconnected" ;;
     esac
 }
 
 clock() {
-    printf "$(date '+%a %b %d  %I:%m %p')"
+    printf "$(date '+%a %b %d %I:%m %p')"
 }
 
 while true; do
