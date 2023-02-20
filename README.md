@@ -1,5 +1,13 @@
 # dotfiles
 
+## lightdm
+
+Set `user-session=dwm` in lightdm.conf.
+Create a desktop file `/usr/share/xsessions/dwm.desktop` and executes dwm or the dwm startup script (`dwmrc`).
+
+## COC
+
+coc package.json
 ```json
 {
   "dependencies": {
