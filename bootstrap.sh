@@ -3,7 +3,7 @@
 DOTFILES_DIR="${HOME}/.dotfiles"
 
 # Install themes, fonts, icons
-for asset_type in themes fonts icons; do
+for asset_type in themes icons; do
     archive_dir="${DOTFILES_DIR}/assets/${asset_type}"
     local_asset_dir="${HOME}/.local/share/${asset_type}"
 
