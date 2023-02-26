@@ -45,7 +45,7 @@ wlan() {
 }
 
 clock() {
-    printf "$(date '+%a %b %d %I:%m %p')"
+    printf "$(date '+%a %b %d %I:%M %p')"
 }
 
 while true; do

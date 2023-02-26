@@ -22,7 +22,7 @@ pacar() {
     if [ -z "$orphan_packages" ]; then
         echo "error: no orphan packages found"
     else
-        sudo pacman -Rsn "$(orphan_packages)"
+        sudo pacman -Rs "$orphan_packages"
     fi
 }
 
@@ -76,7 +76,7 @@ lf() {
 
     # Launch ueberzug.
     mkfifo "$LF_UEBERZUG_TEMPDIR/fifo" || exit 1
-    ueberzug layer --silent < "$LF_UEBERZUG_TEMPDIR/fifo" &!
+    ueberzug layer --silent < "$LF_UEBERZUG_TEMPDIR/fifo" &
     exec 3> "$LF_UEBERZUG_TEMPDIR/fifo"
     UEBERZUGPID=$!
 
