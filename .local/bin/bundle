@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # creates list of all installed packages
 # reinstall with pacman -S $(cat pkglist)

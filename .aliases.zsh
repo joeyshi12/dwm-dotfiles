@@ -6,7 +6,7 @@ alias \
     m="neomutt" \
     copy="xclip -sel c" \
     diff="diff --color" \
-    ssh="kitty +kitten ssh"  # kitty ssh patch
+    ssh="kitty +kitten ssh"  # kitty ssh fix
 
 # pacman abbreviations
 alias \
@@ -20,7 +20,7 @@ alias \
 pacar() {
     orphan_packages="$(pacman -Qdtq)"
     if [ -z "$orphan_packages" ]; then
-        echo "error: no orphan packages found"
+        printf "error: no orphan packages found\n\n"
     else
         sudo pacman -Rs "$orphan_packages"
     fi
@@ -63,28 +63,8 @@ crun() {
 
 # lf with ueberzug image preview
 lf() {
-    cleanup() {
-        ~/.dotfiles/.config/lf/cleaner
-        exec 3>&-
-        rm "$LF_UEBERZUG_TEMPDIR/fifo"
-        rm -rf "$LF_UEBERZUG_TEMPDIR"
-    }
-    trap cleanup INT HUP
-
-    # Set up temporary directory.
-    export LF_UEBERZUG_TEMPDIR="$(mktemp -d -t lf-ueberzug-XXXXXX)"
-
-    # Launch ueberzug.
-    mkfifo "$LF_UEBERZUG_TEMPDIR/fifo" || exit 1
-    ueberzug layer --silent < "$LF_UEBERZUG_TEMPDIR/fifo" &
-    exec 3> "$LF_UEBERZUG_TEMPDIR/fifo"
-    UEBERZUGPID=$!
-
-    # Add this script's directory to PATH so that the lf config will find
-    # lf-ueberzug-cleaner and lf-ueberzgu-previewer. If no startup directory is
-    # provided, start lf in the examples directory.
-    export PATH="$PATH:${ZSH_ARGZERO:A:h}"
-    /bin/lf -last-dir-path "$LF_UEBERZUG_TEMPDIR/lfdir"
-    cd "$(cat $LF_UEBERZUG_TEMPDIR/lfdir)"
-    cleanup
+    target="/tmp/lfdir"
+    lf-ueberzug -last-dir-path $target
+    cd "$(cat $target)"
+    rm $target
 }
