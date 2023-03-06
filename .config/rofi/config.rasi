@@ -1,5 +1,5 @@
 configuration{
-    modi: "run,drun,window";
+    modi: "drun,window";
     lines: 5;
     font: "JetBrainsMono Nerd Font 12";
     show-icons: true;
@@ -10,6 +10,7 @@ configuration{
     disable-history: false;
     hide-scrollbar: true;
     display-drun: "   Apps ";
+    display-window: "   Window ";
 }
 
 * {
@@ -24,7 +25,7 @@ configuration{
     width: 600;
 }
 
-element-text, element-icon , mode-switcher {
+element-text, element-icon, mode-switcher {
     background-color: inherit;
     text-color:       inherit;
 }
@@ -92,7 +93,7 @@ element selected {
 
 mode-switcher {
     spacing: 0;
-  }
+}
 
 button {
     padding: 10px;
