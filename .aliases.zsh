@@ -22,7 +22,7 @@ pacar() {
     if [ -z "$orphan_packages" ]; then
         printf "error: no orphan packages found\n\n"
     else
-        sudo pacman -Rs "$orphan_packages"
+        sudo pacman -Rs $orphan_packages
     fi
 }
 
@@ -63,8 +63,8 @@ crun() {
 
 # lf with ueberzug image preview
 lf() {
-    target="/tmp/lfdir"
+    if [ ! -d "${XDG_CACHE_HOME}/lf" ] && mkdir -p "${XDG_CACHE_HOME}/lf"
+    target="${XDG_CACHE_HOME}/lf/lfdir"
     lf-ueberzug -last-dir-path $target
     cd "$(cat $target)"
-    rm $target
 }

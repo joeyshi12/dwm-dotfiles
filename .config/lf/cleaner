@@ -1,8 +1,4 @@
-#!/usr/bin/env sh
-
-cat <<EOF | paste -sd '' >"$LF_UEBERZUG_TEMPDIR/fifo"
-{
-"action": "remove",
-"identifier": "lf-preview"
-}
-EOF
+#!/bin/sh
+if [ -n "$FIFO_UEBERZUG" ]; then
+	printf '{"action": "remove", "identifier": "lf-preview"}\n' > "$FIFO_UEBERZUG"
+fi

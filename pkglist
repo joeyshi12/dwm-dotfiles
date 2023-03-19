@@ -3,6 +3,8 @@ autoconf
 automake
 base
 bash-language-server
+bat
+bc
 bind
 binutils
 bison
@@ -15,6 +17,7 @@ ccls
 certbot
 cmake
 cowsay
+cups
 discord
 docker
 dolphin-emu
@@ -22,7 +25,6 @@ dotnet-sdk
 dunst
 fakeroot
 feh
-figlet
 firefox
 flameshot
 flex
@@ -30,8 +32,8 @@ font-manager
 fzf
 gcc
 gdb
+ghostscript
 gifsicle
-gimp
 git
 git-lfs
 glfw-x11
@@ -46,12 +48,13 @@ hugo
 imagemagick
 inetutils
 inkscape
+isync
 jre11-openjdk
 jre11-openjdk-headless
 julia
 jupyter-notebook
 kitty
-lftp
+krita
 lib32-fontconfig
 lib32-gnutls
 lib32-libpulse
@@ -86,13 +89,14 @@ nmap
 noto-fonts
 noto-fonts-emoji
 npm
-nvidia
-nvidia-settings
 obs-studio
 obsidian
 opengl-man-pages
 p7zip
+pacman-contrib
+pass
 patch
+perl-file-mimeinfo
 perl-image-exiftool
 pkgconf
 pkgfile
@@ -112,9 +116,8 @@ ranger
 ripgrep
 rofi
 rsync
-rust
+screenkey
 sharutils
-simplescreenrecorder
 socat
 steam
 strace
@@ -139,6 +142,7 @@ thunar
 thunar-archive-plugin
 thunar-volman
 thunderbird
+tk
 tldr
 tmux
 transmission-qt
@@ -213,7 +217,6 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
-xournalpp
 yarn
 zathura
 zathura-pdf-poppler

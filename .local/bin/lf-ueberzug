@@ -1,20 +1,20 @@
 #!/bin/sh
 
+set -e
+
 cleanup() {
-	~/.config/lf/cleaner
-	kill "$UEBERZUGPID"
-	pkill -f "tail -f $LF_UEBERZUG_TEMPDIR/fifo"
-	rm -rf "$LF_UEBERZUG_TEMPDIR"
+    exec 3>&-
+        rm "$FIFO_UEBERZUG"
 }
-trap cleanup INT HUP
 
-# Set up temporary directory.
-export LF_UEBERZUG_TEMPDIR="$(mktemp -d -t lf-ueberzug-XXXXXX)"
-
-# Launch ueberzug.
-mkfifo "$LF_UEBERZUG_TEMPDIR/fifo"
-tail -f "$LF_UEBERZUG_TEMPDIR/fifo" | ueberzug layer --silent &
-UEBERZUGPID=$!
-
-/bin/lf "$@"
-cleanup
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    /bin/lf "$@"
+else
+    export FIFO_UEBERZUG="${XDG_CACHE_HOME}/lf/ueberzug-$$"
+    mkfifo "$FIFO_UEBERZUG"
+    ueberzug layer -s < "$FIFO_UEBERZUG" -p json &
+    exec 3>"$FIFO_UEBERZUG"
+    trap cleanup INT HUP
+    /bin/lf "$@" 3>&-
+    cleanup
+fi
