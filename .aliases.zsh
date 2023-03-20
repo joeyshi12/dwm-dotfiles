@@ -64,7 +64,12 @@ crun() {
 # lf with ueberzug image preview
 lf() {
     if [ ! -d "${XDG_CACHE_HOME}/lf" ] && mkdir -p "${XDG_CACHE_HOME}/lf"
+    export FIFO_UEBERZUG="${XDG_CACHE_HOME}/lf/ueberzug-$$"
+    rm -f "$FIFO_UEBERZUG"
+    mkfifo "$FIFO_UEBERZUG"
     target="${XDG_CACHE_HOME}/lf/lfdir"
     lf-ueberzug -last-dir-path $target
+
+    [ -p "$FIFO_UEBERZUG" ] && rm "$FIFO_UEBERZUG"
     cd "$(cat $target)"
 }
