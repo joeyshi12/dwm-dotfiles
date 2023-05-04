@@ -17,3 +17,4 @@ export NVM_DIR="${XDG_DATA_HOME}/nvm"
 export WINEPREFIX="${XDG_DATA_HOME}/wineprefixes/default"
 
 export BAT_THEME="Catppuccin-mocha"
+export _JAVA_AWT_WM_NONREPARENTING=1 # Fix for Java applications in dwm

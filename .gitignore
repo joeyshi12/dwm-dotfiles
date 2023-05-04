@@ -9,3 +9,6 @@ bookmarks
 
 # nvim plugins
 plugged/
+
+# tmux plugins
+plugins/

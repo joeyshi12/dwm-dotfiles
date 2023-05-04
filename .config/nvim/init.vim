@@ -30,6 +30,9 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
     let g:lightline = {'colorscheme': 'catppuccin'}
+Plug 'preservim/vim-markdown'
+    let g:vim_markdown_folding_disabled = 1
+    let g:vim_markdown_math = 1
 call plug#end()
 
 " General

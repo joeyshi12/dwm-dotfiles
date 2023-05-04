@@ -38,7 +38,6 @@ alias \
     gcl="git clone --recurse-submodules" \
     gl="git pull" \
     gup="git pull --rebase" \
-    gm="git merge" \
     gp="git push" \
     gf="git fetch" \
     gco="git checkout" \
