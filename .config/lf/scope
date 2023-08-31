@@ -38,8 +38,7 @@ case "$(file --dereference --brief --mime-type -- "$file")" in
         ;;
     image/*) preview "$file" "$@" ;;
     text/html) w3m -dump "$file" ;;
-    text/*|application/json) bat --terminal-width $(($3-2)) -f "$file" ;;
-    *) exiftool "$file" ;;
+    *) bat --terminal-width $(($3-2)) -f "$file" ;;
 esac
 
 exit 1

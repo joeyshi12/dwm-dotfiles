@@ -7,13 +7,15 @@ lightdm-mini-greeter
 mkinitcpio-firmware
 nvm
 pandoc-bin
+parsec-bin
 postman-bin
-python36
 rar
 sc-im
+scala
 slack-desktop
 soundux-git
+sunshine-bin
+tor-browser
 visual-studio-code-bin
 yay-bin
-zoom
 zsh-theme-powerlevel10k-git

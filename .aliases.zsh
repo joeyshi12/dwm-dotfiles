@@ -35,6 +35,19 @@ alias gdc="git diff --cached"
 alias glg="git log --graph"
 alias gr="git remote"
 
+# Docker
+alias dc='docker-compose'
+alias dim='docker image'
+alias drmi='docker rmi'
+alias dps='docker ps'
+alias db='docker build'
+alias dr='docker run'
+alias dst='docker stop'
+alias drm='docker rm'
+alias da='docker attach'
+alias dlg='docker logs'
+alias dv='docker volume'
+
 # Tmux
 alias t="tmux"
 alias ta="tmux attach-session"
