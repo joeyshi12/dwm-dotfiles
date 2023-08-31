@@ -155,11 +155,6 @@ _G.packer_plugins = {
     path = "/home/joey/.local/share/nvim/site/pack/packer/start/tex-conceal.vim",
     url = "https://github.com/KeitaNakamura/tex-conceal.vim"
   },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/joey/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/joey/.local/share/nvim/site/pack/packer/start/vim-surround",
