@@ -5,7 +5,6 @@ alias sv="sudo -E $EDITOR"
 alias m="neomutt"
 alias copy="xclip -sel c"
 alias diff="diff --color"
-alias ssh="kitty +kitten ssh"  # kitty ssh fix
 
 # Pacman
 alias pacs="sudo pacman -S"

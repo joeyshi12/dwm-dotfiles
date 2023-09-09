@@ -9,7 +9,11 @@ return require('packer').startup(function(use)
     use { "catppuccin/nvim", as = "catppuccin" }
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = ':TSUpdate',
+        requires = {
+            -- html autoclose tag
+            { 'windwp/nvim-ts-autotag' }
+        }
     }
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -40,4 +44,8 @@ return require('packer').startup(function(use)
         },
     }
     use { 'lewis6991/gitsigns.nvim' }
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 end)

@@ -1,4 +1,6 @@
-set clipboard+=unnamed
+vnoremap <leader>y "+y
+nnoremap <C-n> <cmd>tabn<cr>
+nnoremap <C-p> <cmd>tabp<cr>
 
 " Map \r to the Reformat Code action
 map \r <Action>(ReformatCode)
