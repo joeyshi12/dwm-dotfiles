@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Find all .desktop files that are not hidden (NoDisplay=false) and don't require terminal
+apps=$(grep -r -l -Z '^Terminal=false' /usr/share/applications ~/.local/share/applications 2>/dev/null | \
+    xargs -0 -n1 basename | sed 's/\.desktop$//')
+
+# Use dmenu to pick one
+chosen=$(echo "$apps" | sort -u | dmenu -i -p "Run:")
+
+# If something was chosen, run the corresponding command from the .desktop file
+if [[ -n "$chosen" ]]; then
+    # Extract Exec line, remove parameters like %U, %f, etc.
+    exec_cmd=$(grep -h "^Exec=" /usr/share/applications/"$chosen".desktop ~/.local/share/applications/"$chosen".desktop 2>/dev/null | head -n1 | sed 's/^Exec=//; s/ %.//g')
+
+    # Run the command in background
+    $exec_cmd &
+fi
